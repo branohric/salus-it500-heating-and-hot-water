@@ -1,0 +1,5 @@
+{
+  "name": "Salus iT500 (heating + hot water)",
+  "homeassistant": "2024.12.0",
+  "render_readme": true
+}

@@ -1,0 +1,18 @@
+{
+  "domain": "salus_it500_custom",
+  "name": "Salus iT500 (heating + hot water)",
+  "codeowners": [
+    "@branohric"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/branohric/salus-it500-heating-and-hot-water",
+  "integration_type": "device",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/branohric/salus-it500-heating-and-hot-water/issues",
+  "loggers": [
+    "custom_components.salus_it500_custom"
+  ],
+  "requirements": [],
+  "version": "1.0.2"
+}

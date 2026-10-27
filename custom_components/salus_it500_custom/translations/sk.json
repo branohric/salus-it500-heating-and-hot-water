@@ -1,0 +1,128 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Salus iT500",
+        "description": "Prihlás sa rovnakým e-mailom a heslom ako v mobilnej aplikácii Salus iT500.",
+        "data": {
+          "username": "E-mail",
+          "password": "Heslo"
+        }
+      },
+      "device": {
+        "title": "Vyber termostat",
+        "data": {
+          "device_id": "Termostat"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Prihlásenie do Salus zlyhalo",
+        "description": "Zadaj aktuálne heslo pre {username}.",
+        "data": {
+          "password": "Heslo"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Nesprávny e-mail alebo heslo. Ak heslo obsahuje špeciálne znaky, skús ho bez nich (Salus ich pri registrácii ticho zahodí).",
+      "cannot_connect": "Nedá sa spojiť so Salus cloudom.",
+      "no_devices": "Na tomto účte sa nenašiel žiadny termostat."
+    },
+    "abort": {
+      "already_configured": "Tento termostat je už pridaný.",
+      "reauth_successful": "Heslo bolo aktualizované."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Nastavenia Salus iT500",
+        "data": {
+          "default_target": "Cieľová teplota pri zapnutí",
+          "off_mode": "Čo znamená „vypnuté“",
+          "off_temperature": "Teplota pre „vypnuté“",
+          "hold_mode": "Ako držať nastavenú teplotu",
+          "hw_boost_hours": "Dĺžka boostu teplej vody",
+          "scan_interval": "Interval čítania",
+          "wake_on_command": "Zobudiť termostat pred každým príkazom"
+        },
+        "data_description": {
+          "off_temperature": "Použije sa, keď „vypnuté“ = nízka teplota (ako v pôvodnom Node-RED).",
+          "hold_mode": "„Manuálny režim“ (predvolené) drží teplotu trvalo a program ignoruje; „Ako aplikácia / starý portál“ ju drží len do ďalšej zmeny v programe.",
+          "wake_on_command": "Odporúčané. Batériový termostat bez zobudenia často nestihne odpovedať (chyba 202) a príkaz sa nevykoná."
+        }
+      }
+    }
+  },
+  "selector": {
+    "off_mode": {
+      "options": {
+        "setpoint": "Nízka teplota (teplota pre vypnuté)",
+        "thermostat": "Režim OFF termostatu (len protimrazová ochrana)"
+      }
+    },
+    "hold_mode": {
+      "options": {
+        "permanent": "Manuálny režim termostatu",
+        "follow": "Ako aplikácia / starý portál"
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "heating": {
+        "name": "Kúrenie"
+      }
+    },
+    "switch": {
+      "hot_water_boost": {
+        "name": "Ohrev vody (boost)"
+      }
+    },
+    "sensor": {
+      "room_temperature": {
+        "name": "Teplota v miestnosti"
+      },
+      "setpoint": {
+        "name": "Nastavená teplota"
+      },
+      "hot_water_boost_remaining": {
+        "name": "Zostávajúci boost vody"
+      },
+      "heating_mode": {
+        "name": "Režim kúrenia",
+        "state": {
+          "auto": "Program",
+          "temp_hold": "Dočasne podržané",
+          "manual": "Manuálne",
+          "off": "Vypnuté"
+        }
+      }
+    },
+    "binary_sensor": {
+      "heating_relay": {
+        "name": "Kotol (kúrenie)"
+      },
+      "hot_water_relay": {
+        "name": "Ohrev vody"
+      },
+      "battery": {
+        "name": "Batéria termostatu"
+      },
+      "online": {
+        "name": "Online"
+      }
+    },
+    "select": {
+      "hot_water_mode": {
+        "name": "Režim teplej vody",
+        "state": {
+          "auto": "Program",
+          "once": "Raz",
+          "on": "Stále zapnuté",
+          "off": "Stále vypnuté"
+        }
+      }
+    }
+  }
+}

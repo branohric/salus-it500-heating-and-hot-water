@@ -1,0 +1,128 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Salus iT500",
+        "description": "Log in with the same email and password you use in the Salus iT500 mobile app.",
+        "data": {
+          "username": "Email",
+          "password": "Password"
+        }
+      },
+      "device": {
+        "title": "Choose thermostat",
+        "data": {
+          "device_id": "Thermostat"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Salus login expired",
+        "description": "Enter the current password for {username}.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "Wrong email or password. If the password contains special characters, try it without them (Salus silently drops them).",
+      "cannot_connect": "Cannot reach the Salus cloud.",
+      "no_devices": "No thermostat found on this account."
+    },
+    "abort": {
+      "already_configured": "This thermostat is already configured.",
+      "reauth_successful": "Password updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Salus iT500 options",
+        "data": {
+          "default_target": "Target temperature when turned on",
+          "off_mode": "What 'off' means",
+          "off_temperature": "'Off' temperature",
+          "hold_mode": "How to hold a set temperature",
+          "hw_boost_hours": "Hot water boost length",
+          "scan_interval": "Polling interval",
+          "wake_on_command": "Wake the thermostat before each command"
+        },
+        "data_description": {
+          "off_temperature": "Used when 'off' = low setpoint (like the old Node-RED flow).",
+          "hold_mode": "'Manual mode' (default) holds the temperature permanently, ignoring the schedule; 'Like the app / old portal' holds it only until the next scheduled change.",
+          "wake_on_command": "Recommended. Without it the battery thermostat often does not answer in time (error 202) and the command is not applied."
+        }
+      }
+    }
+  },
+  "selector": {
+    "off_mode": {
+      "options": {
+        "setpoint": "Low setpoint (off temperature)",
+        "thermostat": "Thermostat OFF mode (frost protection only)"
+      }
+    },
+    "hold_mode": {
+      "options": {
+        "permanent": "Thermostat manual mode",
+        "follow": "Like the app / old portal"
+      }
+    }
+  },
+  "entity": {
+    "climate": {
+      "heating": {
+        "name": "Heating"
+      }
+    },
+    "switch": {
+      "hot_water_boost": {
+        "name": "Hot water boost"
+      }
+    },
+    "sensor": {
+      "room_temperature": {
+        "name": "Room temperature"
+      },
+      "setpoint": {
+        "name": "Setpoint"
+      },
+      "hot_water_boost_remaining": {
+        "name": "Hot water boost remaining"
+      },
+      "heating_mode": {
+        "name": "Heating mode",
+        "state": {
+          "auto": "Schedule",
+          "temp_hold": "Temporary hold",
+          "manual": "Manual",
+          "off": "Off"
+        }
+      }
+    },
+    "binary_sensor": {
+      "heating_relay": {
+        "name": "Boiler (heating)"
+      },
+      "hot_water_relay": {
+        "name": "Hot water"
+      },
+      "battery": {
+        "name": "Thermostat battery"
+      },
+      "online": {
+        "name": "Online"
+      }
+    },
+    "select": {
+      "hot_water_mode": {
+        "name": "Hot water mode",
+        "state": {
+          "auto": "Schedule",
+          "once": "Once",
+          "on": "Always on",
+          "off": "Always off"
+        }
+      }
+    }
+  }
+}
